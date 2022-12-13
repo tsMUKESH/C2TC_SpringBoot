@@ -13,13 +13,13 @@ public class EmployeeController {
 	private EmployeeService service;
 	
 	//Retrieve All Employee
-	@GetMapping("/employee")
+	@GetMapping("/remp")
 	public List<Employee> list(){
 		return service.listAll();
 	}
 	
 	//Retrieve Employee by Id
-	@GetMapping("/employee/{id}")
+	@GetMapping("/remp/{id}")
 	public ResponseEntity<Employee> get(@PathVariable Integer id){
 		 try {
 			Employee emp = service.get(id);
@@ -30,13 +30,13 @@ public class EmployeeController {
 	}
 	
 	//Create Employee
-	@PostMapping("/employee")
+	@PostMapping("/uemp")
 	public void add(@RequestBody Employee emp) {
 		service.save(emp);
 	}
 	
 	//Update Employee
-	@PutMapping("/employee/{id}")
+	@PutMapping("/uemp/{id}")
 	public ResponseEntity<?> update(@RequestBody Employee emp, @PathVariable Integer id){
 		try {
 			@SuppressWarnings("unused")
@@ -49,7 +49,7 @@ public class EmployeeController {
 	}
 	
 	//Delete Employee
-	@DeleteMapping("/employee/{id}")
+	@DeleteMapping("/demp/{id}")
 	public void delete(@PathVariable Integer id) {
 		service.delete(id);
 	}
